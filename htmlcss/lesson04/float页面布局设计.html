@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta charset="gb2312">
+	<title></title>
+<style type="text/css">
+/* 
+
+
+
+float 浮动 left/right/none
+1.是块元素在一行显示
+2.使内嵌元素支持宽高
+3.不设置宽度时，宽度根据内容来撑开
+4.脱离文档流（元素加了浮动，会脱离文档流，按指定的方向的流动，直到遇到父级的边界或者另一个元素浮动元素停止）
+
+5.重点！！！提升层级半级，之后的元素的内容会被挤出来，不会再浮动元素的下方
+
+文档流是文档中可显示元素对象在排列时所占用的位置
+
+
+clear 某个元素的left/right/both/none方向的元素不能有浮动元素
+
+元素浮动之后，后面的元素会尽量跟前面的元素的顶部对齐，这段话的意思参考瀑布流的设计
+*/
+
+body{
+margin:0;
+}
+.box{width:900px;margin:0 auto;border:5px solid #000;height:600px;}
+.left{width:300px;float:left;}
+.left div{height:298px;background:#9f0;border:1px solid #fff;}
+.center{width:300px;float:left;}
+.center div{height:198px;background:red;border:1px solid #fff;}
+.right{width:300px;float:right;}
+.right div{height:298px;background:blue;border:1px solid #fff;}
+</style>
+</head>
+<body>
+	
+
+<div class="box">
+	<div class="left">
+		<div></div>
+		<div></div>
+	</div>
+	<div class="center">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	<div class="right">
+		<div></div>
+		<div></div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>

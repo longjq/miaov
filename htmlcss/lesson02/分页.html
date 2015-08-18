@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	
+	<style type="text/css">
+	
+	.pages{
+		height:58px;
+		line-height:58px;
+		background:#e8e8e8;
+		width:600px;
+		margin:90px auto;
+		text-align:center;
+	}
+	.pages a{
+		background:#fff;
+		border:1px solid #ccc;
+		height:28px;
+		line-height:28px;
+		padding:0 8px 0 9px;
+		display:inline-block;
+		text-decoration:none;
+	}
+	.pages a:hover{
+		border-color:red;
+		color:red;
+	}
+	.pages .active{
+		background:green;
+		font-weight:bold;
+		color:#fff;
+		cursor:text;
+		
+	}
+	.pages .active:hover{
+		color:#fff;
+		background:green;
+		border-color:#ccc;
+	}
+	body{
+	cursor:url(NO.cur),pointer;
+	}
+	</style>
+	
+</head>
+<body>
+<!--
+a、分析结构（div 包一排a）
+b、a标签支持宽高，并且在一排显示
+c、有hover效果
+d、当前状态不能点！
+
+cursor 指针样式 （规定要显示的光标的类型）
+cursor：pointer | text | move ……
+cursor:url(hand.cur),pointer;
+
+
+-->
+<div class="pages">
+<a href="#">Prive</a>
+<a href="#">1</a>
+<a href="#">2</a>
+<a href="#" class="active">3</a>
+<a href="#">4</a>
+<a href="#">5</a>
+<a href="#">6</a>
+<a href="#">7</a>
+<a href="#">Next</a>
+</div>
+
+</body>
+</html>

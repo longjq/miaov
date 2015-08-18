@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+div {padding: 40px 50px;}
+#div1 {background: red;}
+#div2 {background: green;;}
+#div3 {background: blue;}
+</style>
+<script>
+window.onload=function(){
+  var oDiv3 = document.getElementById('div3');
+
+  /*
+  元素.offsetLeft[Top]：属性 只读 当前元素到定位父级的距离（偏移值）
+
+  到当前元素offsetParent的距离
+
+  如果没有定位父级
+    offsetParent -> body / ie7以下指向 html
+    offsetLeft   -> html
+
+  如果有定位父级
+    ie7：如果自己没有定位，那么offsetLeft[Top]是到body的距离
+    ie7：如果自己有定位，就定位到父级的距离
+    其他：定位父级的距离
+
+
+  //标准下：marginTop和marginLeft都是8px
+  //ie7以下：marginleft是10px，marginLeft是10px
+  */
+
+  alert(oDiv3.offsetLeft);
+};
+    
+
+</script>
+</head>
+<body>
+<div id="div1">
+  <div id="div2">
+    <div id="div3">
+      hello world!
+    </div>
+  </div>
+</div>
+</body>
+</html>

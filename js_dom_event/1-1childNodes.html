@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+window.onload=function(){
+    var oUl = document.getElementById('ul1');
+    /*
+    
+    元素.childNodes：只读，属性 子节点类型
+    标准下：包含了文本和元素的结点(连换行都算文本结点)
+    非标准下：只包含元素的结点
+
+    childNodes只包含一级子节点，不包含孙级子节点
+
+    Dom结点类型很多，有12种
+
+    元素.nodeType：只读 属性 ，当前元素的结点类型
+    文本结点      3
+    属性结点      2
+    元素结点      1
+
+    元素.attributes：属性 属性集合  获取元素的属性
+
+    */
+    //alert(oUl.childNodes[0]);
+    //alert(oUl.attributes[1].name);
+
+    for (var i = 0; i < oUl.childNodes.length; i++) {
+        
+        if (oUl.childNodes[i].nodeType == 1) {
+            oUl.childNodes[i].style.background = 'red';
+        }
+    };
+};
+    
+
+</script>
+</head>
+<body>
+<ul id="ul1" class="list">
+    <li>1111</li>
+    <li>2222</li>
+    <li>3333</li>
+    <li>4444</li>
+</ul>
+
+</body>
+</html>

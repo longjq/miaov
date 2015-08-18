@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+
+
+alert(fn(2,5)); //[2,3,4,5]
+alert(fn(7,3)); //[3,4,5,6,7]
+
+function fn(num1,num2){
+    var min,max,arr=[];
+    if (num1<num2) {
+        min = num1;
+        max = num2;
+    }else if(num2<num1){
+        min = num2;
+        max = num1;
+    }else{
+        alert('对不起，你输入的有误哦~！');
+        return;
+    }
+
+    for (var i = min; i <= max; i++) {
+        arr.push(i);
+    };
+    return arr;
+}
+
+
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

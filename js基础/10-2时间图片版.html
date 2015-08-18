@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+window.onload=function(){
+    var oText = document.getElementById('time_text');
+    var aImg = document.getElementsByTagName('img');
+    var sTime = '';
+    fnTime();
+    
+    setInterval(fnTime,1000);
+
+    function fnTime(){
+        
+        var time = new Date();
+
+        var y = time.getFullYear();
+        //月份从0开始，需要+1
+        var m = time.getMonth();
+
+        var h = time.getHours();
+        var min = time.getMinutes();
+        var s = time.getSeconds();
+
+        //获取日期
+        var d = time.getDate();
+        //一周里面的第几天
+        var week = time.getDay();
+
+        var str = '';
+
+        str = y+'年'+toTwo(m+1)+'月'+toTwo(d)+'日'+week+'星期'+toTwo(h)+'时'+toTwo(min)+'分'+toTwo(s)+'秒';
+        //221011
+        sTime = toTwo(h)+toTwo(min)+toTwo(s);
+        
+        oText.innerHTML= str;
+
+
+        aImg[0].src = 'img/time/'+ sTime.charAt(0) +'.jpg';
+        aImg[1].src = 'img/time/'+ sTime.charAt(1) +'.jpg';
+        aImg[2].src = 'img/time/'+ sTime.charAt(2) +'.jpg';
+        aImg[3].src = 'img/time/'+ sTime.charAt(3) +'.jpg';
+        aImg[4].src = 'img/time/'+ sTime.charAt(4) +'.jpg';
+        aImg[5].src = 'img/time/'+ sTime.charAt(5) +'.jpg';
+        
+    }
+
+    
+};
+
+function toTwo(n){
+
+    return n < 10 ? '0'+n : ''+n;
+}
+</script>
+</head>
+<body>
+<p id="time_text"></p>
+<div id="time_img">
+    <img src="img/time/0.jpg" alt="">
+    <img src="img/time/0.jpg" alt="">
+    <img src="img/time/0.jpg" alt="">
+    <img src="img/time/0.jpg" alt="">
+    <img src="img/time/0.jpg" alt="">
+    <img src="img/time/0.jpg" alt="">
+</div>
+</body>
+</html>

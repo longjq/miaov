@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta charset="gb2312">
+	<title></title>
+<style type="text/css">
+
+/* 
+
+子元素float后，脱离文档流，父级元素就包不住子元素了 
+
+
+解决方法：
+1.父级元素加float
+说明：父子级元素都向float方向流动，但是margin居中失效。多层级的时候，父级，爷级都要加float
+
+.box{
+width:300px;margin:0 auto;border:10px solid #000;float:left;
+}
+.div{
+width:200px;height:200px;background:red;float:left;
+}
+
+2.父级元素加inline-block，
+说明：它不脱离文档流，所以会撑开父级元素，就不需要父级也加inline-block，但是margin居中失效，要给父级加text-align:center;实现居中
+
+.box{
+width:300px;margin:0 auto;border:10px solid #000;display:inline-block;
+}
+.div{
+width:200px;height:200px;background:red;float:left;
+}
+
+3.在浮动的元素下方加一个空的div，设置一个clear:both的css
+说明：新增一个名为clear的css类，里面写clear:both;让一个div元素应用这个css类，这个div的左右两边都没有浮动元素，让这个div元素撑开父类高度，这个div要设置高度为0，在chrome下无问题，在ie6下有个最小高度的问题，高度小于19px像素的元素，会显示最小高度19px
+<div class="box">
+
+
+<div class="div"></div>
+<div class="clear"></div> //新增一个空的div元素，引用clear:both来解决
+
+
+</div>
+
+.box{
+width:300px;margin:0 auto;border:10px solid #000;
+}
+.div{
+width:200px;height:200px;background:red;float:left;
+}
+.clear{
+clear:both;height:0;//ie6下有最小高度19px的问题
+font-size:0;//ie6下设置这个会显示元素的最小的高度2px，也算一种”解决方案“
+overflow:hidden;//最小高度的另一种解决方案：超出设置的height时就隐藏溢出部分！！！最好用！！！
+}
+
+4.在浮动元素下方加一个<br clear="all"/>的元素，因为不符合w3c的标准，即结构，样式，行为的三种分离，浮动的问题由样式引起的，就要使用样式来解决，不要使用结构来解决！！！
+
+<div class="box">
+
+
+<div class="div"></div>
+<br clear="all"/> //br解决，不符合w3c标准
+
+
+</div>
+
+5.给浮动元素父级加{zoom:1}，触发haslayout，在父元素加:after{content:'';display:block;clear:both;}
+
+给父级元素加:after伪类的样式，但是ie6/7下不支持除了a链接的那4个伪类以为的任何伪类
+说明：在父级元素内的所有子元素的最后的一个位置，加一个元素，里面实现clear:both;即可
+
+<div class="box clear">
+
+
+<div class="div"></div>
+
+
+
+</div>
+
+.clear:after{
+content:'';display:block;clear:both;
+}
+
+//实现一个伪类的最后的一个位置，实现一个清除，必须加一个display:block;因为要加clear:both ，而清除浮动只有在块元素上面才有效果，所以要将末尾元素转换为快元素display:block;
+
+//！！！注意：在ie6/7下，浮动元素的父级有宽度就不用清浮动！！！
+haslayout，意思是一个元素，如果父级有宽高度的话，这个元素的宽高度就跟父级一样，如果父级没有宽高度的话，这个元素的宽高度就根据自己的内容走。haslayout默认是关闭的就是false，启用的话就是ture，启用了haslayout的话，
+
+.box{
+width:300px;margin:0 auto;border:10px solid #000;//例如这里，父级设置了宽高度了，那么子元素的宽高度同这个宽高度一样
+}
+.div{
+width:200px;height:200px;background:red;float:left;
+}
+.clear:after{
+content:'';display:block;clear:both;
+}
+
+但是呢，通常情况下，我们不会给父级设置宽高度，因为父级的框高度希望是以子元素的框高度来的，所以要触发haslayout为true，触发了haslayout了，元素就根据自己的内容来设置宽高，有了这个宽高，父级就不得不包住子元素的宽高度，实现子元素不溢出父元素外面
+
+以下设置了这些属性，都会触发元素的haslayout=true，实现计算元素宽高，实现父元素包住这个宽高，实现子元素不溢出父元素
+* display: inline-block
+* height: (任何值除了auto)
+* float: (left 或 right)
+* position: absolute
+* width: (任何值除了auto)
+* writing-mode: tb-rl
+* zoom: (除 normal 外任意值) //通常使用这个实现在ie6/7下触发haslayout，ie6/7以外不支持，配合:after兼容所有浏览器
+
+
+6.给浮动元素父级加overflow:hidden|auto; ，隐藏子元素的溢出部分,一定要配合zoom:1;使用
+
+
+
+
+7.父元素加position:absolute;或position:fiexd;即可包住子元素,一般情况是，父元素是定位元素了，就不用加clear了，因为会包住子元素的
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+.box{
+margin:0 auto;border:10px solid #000;overflow:hidden;
+}
+.div{
+width:200px;height:200px;background:red;float:left;
+}
+
+</style>
+</head>
+<body>
+	
+<div class="box">
+
+
+<div class="div"></div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>

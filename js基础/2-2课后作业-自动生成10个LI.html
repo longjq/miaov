@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+<style>
+ul{margin: 10px 0;padding: 0;position: relative;}
+li{list-style: none;width: 30px;height: 30px;line-height: 30px;text-align: center;position: absolute;border: 1px solid #000;}
+</style>
+
+</head>
+<body>
+
+<input type="button" id="btn1" value="生成10个li" />
+<ul id="news">
+</ul>
+<script>
+    var count = 100;
+    var btn1 = document.getElementById('btn1');
+    var oUl  = document.getElementById('news');
+    var oli  = oUl.getElementsByTagName('li');
+
+    var arrColor = ['red','green','blue','pink'];
+    var lis   = '';
+    var index = 0;
+    var nextNum = 0;
+
+    btn1.onclick = function(){
+        
+        for (var i = 0; i < count; i++) {
+            lis += '<li style="left:'+ i%10*60 +'px;top:'+ Math.floor(i/10)*60 +'px">'+ i +'</li>';
+        };
+
+        oUl.innerHTML = lis;
+
+        for (var i = 0; i < oli.length; i++) {
+            if (index == arrColor.length) {
+                index = 0;
+            };
+            index++;
+
+
+
+
+// var MaxNum=100,str='';
+
+//    for(var i=0;i<MaxNum;i++){
+//         str+='<div style="left:'+i%10*60+'px;top:'+Math.floor(i/10)*60+'px;"></div>'
+//    }
+//    document.body.innerHTML=str;
+            
+            // if (i % 10 == 0) {
+            //     nextNum = i;
+            //     //赋值方式
+            //     oli[i].style.left = 0+'px';
+            //     oli[i].style.background=arrColor[index];
+            //     oli[i].style.top = 10 + nextNum*4+'px';
+            // }else{
+            //     arrNum = i.toString().split('.');
+            //     alert(arrNum);
+            //     oli[i].style.cssText = 'left:'+ arrNum[0]*40 +'px;top:'+ 10+arrNum[1]*40 +'px;background:'+arrColor[index];
+            // }
+            //字符串拼接方式
+            //oli[i].style.cssText = 'left:'+ i*40 +'px;background:'+arrColor[index];
+            
+            
+        };
+    };
+
+
+
+</script>
+</body>
+</html>

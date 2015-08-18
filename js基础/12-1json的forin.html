@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+<body>
+
+<script>
+var json4 = {'name':'miaov','age':3,fun:'前段开发'};
+
+for (var attr in json4){
+    //alert(json4[attr]);
+}
+
+var str = '';
+var num = 0;
+
+for (var attr in document){
+    str += num +'.'+attr+':'+document[attr]+'<br />';
+    num++;
+}
+document.body.innerHTML = str;
+//for in 可以使用到数组，json数据
+//for    可以使用到数组，不可使用json数据
+</script>
+</body>
+</html>

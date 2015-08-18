@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="5">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+var str = '黎明不是张国荣';
+// alert(str.length);    //7
+// alert(str.charAt(2)); //不
+
+// alert(str.charCodeAt()); //0~9=>48~57;a~z=>97~122;A~Z=>65~90;
+// alert(str.charCodeAt(2)); //19981，输出编码值
+// alert(String.fromCharCode(19981)); //不，通过编码值输出汉子
+// document.write(my_encode('安红，俺想你~')); //加密
+
+
+//indexOf找字符串（从左往右），没找到返回-1
+// var str = 'longjq.com/2015';
+// alert(str.indexOf('o')); //查找o第一次出现的位置
+// alert(str.indexOf('o',2));//查找o，从第3个位置找
+
+var str = '妙味课堂是一致独具特殊的IT培训团队，妙味反对传统IT教育枯燥乏味的教学模式，妙味提供一种全新的快乐学习方法！';
+var s = '妙味';
+// var i = 0;
+// for的写法，获取妙味出现的位置
+// for(;str.indexOf(s,i)!=-1;){
+//     alert(str.indexOf(s,i));
+//     i = str.indexOf(s,i)+s.length;
+// }
+// while的写法，获取妙味出现的位置
+// while(str.indexOf(s,i)!=-1){
+//     alert(str.indexOf(s,i));
+//     i = str.indexOf(s,i)+s.length;
+// }
+// 从右往左，如果第二个值是负数，就当成0来处理
+// str.lastIndexOf(s,i);
+
+
+/**
+ * 通过acsii值，验证字符串内是否有非数字存在
+ * @param  {[type]} str [description]
+ * @return {[type]}     [description]
+ */
+function detectNum(str){
+    var n = 0;
+    for (var i = 0; i < str.length; i++) {
+        n = str.charCodeAt(i);
+        if (n < 48 || n > 57) return false;
+    };
+    return true;
+}
+
+/**
+ * 简单加密，加密算法：获得字符串的编码值，在编码值的基础上-520，再反向获得字符串，得到加密结果
+ * @param  {[type]} codestr [description]
+ * @return {[type]}         [description]
+ */
+function my_encode(codestr){
+    var str = '';
+    for (var i = 0; i < codestr.length; i++) {
+        str += String.fromCharCode(codestr.charCodeAt(i)-520);
+    };
+    return str;
+}
+</script>
+</head>
+<body>
+    
+</body>
+</html>

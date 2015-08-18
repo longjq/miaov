@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>幻灯片</title>
+<style>
+#box{width: 425px;margin: 0 auto; border: 2px solid #333;}
+#page,#desc{text-align: center;background: #ccc;margin: 0;padding: 10px;}
+#warp{position: relative;height: 260px;}
+#next,#prve{border: 1px solid #fff;background: #ccc;position: absolute;top: 100px;width: 20px;text-decoration: none;text-align: center;margin: 0 10px;}
+#next{right: 0;}
+#prve{left: 0};
+</style>
+
+<script>
+window.onload=function(){
+    //获取节点
+    var oImg   = document.getElementById('slider');
+    var oNext  = document.getElementById('next');
+    var oPrve  = document.getElementById('prve');
+    var loop   = document.getElementById('loop');
+    var noloop = document.getElementById('noloop');
+    //获取展示信息
+    var index = document.getElementById('index');
+    var count = document.getElementById('count');
+    var desc  = document.getElementById('desc');
+    //设置参数
+    var arrImgs = ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'];
+    var arrDesc = ['图片1','图片2','图片3','图片4'];
+
+    //初始化操作
+    var num = 0;
+    var flag = 'loop';
+    count.innerHTML =  arrDesc.length;
+    tab();
+    
+    //下一步
+    oNext.onclick = function(){
+        num++;
+        if (num == arrDesc.length) {
+            flag == 'loop' ? num =0 : num = arrDesc.length - 1;            
+        }
+        tab();
+    };
+
+    //上一步
+    oPrve.onclick = function(){
+        num--;  
+        if (num == -1) {
+            flag == 'loop' ? num = arrDesc.length - 1 : num = 0;
+        }
+        tab();
+    };
+
+    //循环
+    loop.onclick = function(){
+        flag = 'loop';
+    }
+
+    //不循环
+    noloop.onclick = function(){
+        flag = 'noloop';
+    }
+
+    //设置展示信息
+    function tab(){
+        index.innerHTML =  num+1;
+        oImg.src = arrImgs[num];
+        desc.innerHTML = arrDesc[num];
+    }  
+};
+</script>
+</head>
+<body>
+    <div id="controller">
+        <button id="loop">循环切换</button>
+        <button id="noloop">不切换</button>
+    </div>
+    <div id="box">
+        <p id="page"><strong id="index">1</strong> / <strong id="count">4</strong></p>
+        <div id="warp">
+            <img src="img/1.jpg" alt="" id="slider">            
+            <a href="#" id="next"> > </a>
+            <a href="#" id="prve"> < </a>
+        </div>
+        <p id="desc">这张图片很好看</p>
+    </div>
+</body>
+</html>

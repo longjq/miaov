@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+body{background: #333;}
+ul{padding: 0;margin: 0;}
+li{list-style: none;}
+#pic{width: 400px;height: 500px;position: relative;margin: 0 auto;background:#fff url(img/loading.jpg) no-repeat center;}
+#pic img{width: 400px;height: 500px;}
+#pic ul{width: 40px;position: absolute;top: 0;right: -50px;}
+#pic li{width: 40px;height: 40px;margin-bottom: 4px;background: #666;}
+#pic .active{background: red;}
+
+#pic span{top:0;}
+#pic p{bottom: 0;margin: 0;padding: 0;}
+#pic p,#pic span{position: absolute;left: 0; width: 400px;height: 30px;line-height: 30px;text-align: center;color: #fff;background: #000;}
+</style>
+
+<script>
+window.onload=function(){
+    //准备数据
+    var arrUrl  = ['img/1.jpg', 'img/2.jpg', 'img/3.jpg', 'img/4.jpg'];
+    var arrText = ['图片1', '图片2', '图片3', '图片4'];
+    var num     = 0;//有数组的地方大部分会有一个num来获取
+    var oldLi    = 0;
+    //准备dom结点
+    var oDiv  = document.getElementById('pic');
+    var oImg  = oDiv.getElementsByTagName('img')[0];
+    var oSpan = oDiv.getElementsByTagName('span')[0];
+    var oP    = oDiv.getElementsByTagName('p')[0];
+    var oUl   = oDiv.getElementsByTagName('ul')[0];
+    var oLi   = oUl.getElementsByTagName('li');
+
+    ////////////////////////////////////////
+    
+    var timer = null;
+    setTimeout(autoPlay,3000);
+    function autoPlay(){
+        timer = setInterval(function(){
+            num++;
+            num%=arrText.length;
+            fnTab();
+        },1000);
+    }
+
+    oDiv.onmouseover=function(){
+        clearInterval(timer);
+    };
+    oDiv.onmouseout=autoPlay;
+    ////////////////////////////////////
+
+    //初始化
+    for (var i = 0; i < arrUrl.length; i++) {
+        oUl.innerHTML += '<li></li>';
+    };
+    
+    /**
+     * 封装函数
+     * @return {[type]} [description]
+     */
+    function fnTab(){
+        //初始化图片
+        oImg.src = arrUrl[num];
+        //初始化分页
+        oSpan.innerHTML = 1+num+' / '+arrUrl.length;
+        //初始化文字
+        oP.innerHTML = arrText[num];
+        //设置活动的li
+        for (var i = 0; i < oLi.length; i++) {
+           oLi[i].className = '';
+        };
+        //this.className = 'active';
+        oLi[num].className = 'active';
+    }
+    fnTab();
+    //oLi[num].className = 'active';
+    //设置当前的li对应引用
+    //oldLi = oLi[num];
+
+    for (var i = 0; i < oLi.length; i++) {
+        //设置当前li的下标
+        oLi[i].index = i;
+        oLi[i].onclick = function(){
+            num = this.index;
+            fnTab();
+            
+            // //根据下标设置图片的地址
+            // oImg.src = arrUrl[num];
+            // //根据下标设置文字的内容
+            // oP.innerHTML = arrText[num];
+            // //根据下标设置分页内容
+            // oSpan.innerHTML = 1+num+' / '+arrText.length;
+
+            // //思路一、全部清空li，在添加当前li
+            // for (var i = 0; i < oLi.length; i++) {
+            //    oLi[i].className = '';
+            // };
+            // this.className = 'active';
+            //思路二、清空上个，添加当前li
+            // oldLi.className = '';
+            // oldLi = this;//设置当前li的引用
+            // this.className = 'active';
+        };
+    };
+};
+</script>
+
+
+
+</head>
+<body>
+
+
+<div id="pic">
+    <span>文字加载中</span>
+    <img src="" alt="">
+    <p>文字加载中</p>
+    <ul></ul>
+</div>
+
+
+
+
+
+</body>
+</html>

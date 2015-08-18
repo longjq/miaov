@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style type="text/css">
+
+/*table css reset 重置加边框*/
+th,td{padding: 0;}
+table{border-collapse:collapse;}
+th,td{border: 1px solid black;}
+
+/*
+
+注意事项：
+1.不要给table,th,td以外的表格标签加样式
+
+2.单元格默认平分table的宽度
+
+3.th里的内容默认加粗，左右上下居中显示
+
+4.td里面的内容默认上下居中，居左显示
+
+5.table决定了整个表格的宽度
+
+6.table里面的，所设置的单元格宽度值都会被改成table宽度的百分比的形式！！！！所以设置了table的宽度的话，再去设置td的宽度，所设的td的宽度是无效的！！！
+
+7.表格里面的每一列都必须要有宽度，否则当内容增加时，单元格的宽度就会被撑开！！！所以设置了宽度的话，即使内容超过了也会换行显示的！！！
+
+8.同一列的话，使用的是最大的宽度！！！同列继承最大宽度！！
+
+9.td设置了宽度，内容换行，是会撑开表格的宽度的！！同行继承最大宽度！！
+
+ */
+
+
+
+
+
+
+
+
+</style>
+
+
+</head>
+<body>
+<!--
+table的标签元素的基本特性就是dispaly:table;
+-->
+<table>
+     <thead>
+         <tr>
+             <th>header</th>
+        
+             <th>header</th>
+              <th>header</th>
+        
+             <th>header</th>
+              <th>header</th>
+        
+             <th>header</th>
+         </tr>
+     </thead>
+     <tbody>
+         <tr>
+             <td>data</td>
+             <td>data</td>
+             <td>data</td>
+             <td>data</td>
+             <td>data</td>
+             <td>data</td>
+         </tr>
+        <tr>
+             <td>data</td>
+             <td>data</td>
+             <td>data</td>
+             <td>data</td>
+             <td>data</td>
+             <td>data</td>
+         </tr>
+        <tr>
+             <td>data</td>
+             <td>data</td>
+             <td>data</td>
+             <td>data</td>
+             <td>data</td>
+             <td>data</td>
+         </tr>
+
+     </tbody>
+ </table> 
+</body>
+</html>

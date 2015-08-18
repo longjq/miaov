@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+	#box{
+	width:500px;/*宽度的padding也会影响width的宽度！！！*/
+	height:500px;/*原来是500px，因为距顶了30px，所以减去30px的高，就是470px*/
+	padding-top:30px;/*注意！！！这里新增了距顶30px的像素，要保持盒子不变，原有的盒子要减去距顶的30px的像素！！！*/
+	border:1px solid #000;
+	}
+	
+	</style>
+</head>
+<body>
+	<div id="box">内边距内边距内边距内边距内边距内边距内边距内边距内边距内边距内边距内边距内边距内边</div>
+	
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+window.onload=function(){
+    var oUl = document.getElementById('ul1');
+   /*
+    元素.firstChild：只读 属性 第一个子节点
+    标准：firstChild会包含文本类型结点
+    非标准：只包含元素结点
+
+    元素.firstElementChild：只读 属性 标准下获取第一个元素类型的子节点
+
+   */
+   //alert(oUl.firstElementChild.style.color='red');
+   var oFirst = oUl.firstElementChild || oUl.firstChild;
+   oFirst.style['color']='red';
+   
+   /*
+   求最后一个子节点
+    元素.lastChild || 元素.lastElementChild 
+   */
+
+   var oLast = oUl.lastElementChild || oUl.lastChild;
+   oLast.style.background = 'yellow';
+
+   /*
+   求下一个兄弟结点
+    元素.nextSibling || 元素.nextElementSibling
+   */
+   var oNext = oFirst.nextElementSibling || oFirst.nextSibling;
+
+   oNext.style.background = 'yellow';
+
+   /*
+    求上一个兄弟结点
+    元素.previousSibling || 元素.previousElementSibling
+   */
+
+   var oPrev = oLast.previousElementSibling || oLast.previousSibling;
+   oPrev.style.background = 'green';
+
+   //疑问，假如ul中没有结点，会取到文本结点（换行），此时需要如何处理呢？
+   //建议使用nodeType=1验证是否是元素结点
+};
+    
+
+</script>
+</head>
+<body>
+<ul id="ul1" class="list">
+    <li>1111</li>
+    <li>2222</li>
+    <li>3333</li>
+    <li>4444</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta charset="gb2312">
+	<title></title>
+<style type="text/css">
+/*
+1.3px像素浮动问题
+说明：//在ie6/7下元素浮动时要并在一起的元素都要加浮动，不加的话后面元素会有3px的空隙
+
+<div class="box">
+
+
+<div class="left"></div>
+
+
+<div class="right">
+李克强“有权不可任性”引爆网络
+
+“大道至简,有权不可任性。” 听到李克强总理在《政府工作报告》中的表述,一位会场外的记者愣了一下:“这是总理的脱稿讲话吗?” 不过,在人民大会堂... 
+中国经济网  2小时前
+2小时前 (锐新闻)“有权不可任性”——中国政府深...  和讯
+2小时前 两会观察:有权不可任性 总理束权谋善政  新浪新闻
+3小时前 “有权不可任性”写入政府工作报告引发热议  中国共产党新闻网
+3小时前 李稻葵:“有权不可任性”讲出了很多代表...  新华网
+独家解读:如何做到“有权不可任性”_新闻_腾讯网
+10小时前 -  对于“大道至简,有权不可任性”的表述,专栏作家陶短房分析指出,李克强说“
+</div>
+
+
+</div>
+
+
+
+.box{
+width:400px;
+}
+.left{
+width:100px;height:300px;background:red;float:left;
+
+}
+.right{
+float:left; //后面的元素，要一并显示，要加float:left;解决3px像素间隙问题
+
+}
+
+2.ie6下的双边距bug
+
+说明：在ie6下，块元素有浮动float，和横向的margin，横向的margin会放大2倍
+解决方法：将快元素display:block;转换为display:inline;即可
+
+<div class="wrap">
+<div class="box"></div>
+</div>
+
+body{margin:0;}
+.wrap{float:left;border:10px solid #000;}
+.box{width:100px;height:100px;background:red;margin:0 100px;float:left;
+display:inline;//出现双边距时，转换为inline即可解决双边距
+}
+
+
+3.ul的li下所有元素间隙折行问题
+说明：li下的span实现float:right;浮动，但是前面的a没有浮动，那么就会折行，a也需要浮动float:left;来解决问题
+
+ul{margin:0;padding:0;list-type:none;}
+a{text-decoration:none;}
+.list{width:300px;}
+.list li{height:30px;line-height:30px;border:1px solid #000;}
+a{float:left;} //ie6下，要实行并在一行的元素，都需要加浮动，这里加float:left;
+span{float:right;} //让span居右了
+
+
+注意：ie6/7下li元素之间的几px像素间隙问题
+在ie6/7下li本身没浮动，但是内容浮动了，li之间就会多出几px间隙
+
+解决方法：
+
+3.1.给li加浮动
+
+ul{margin:0;padding:0;list-type:none;}
+a{text-decoration:none;}
+.list{width:300px;}
+.list li{height:30px;line-height:30px;border:1px solid #000;
+float:left;//因为内容浮动，li没浮动就会出现几px间隙，所以给li加浮动
+width:300px;//但是加了浮动没宽度，li就会挤在一起(宽度根据内容来定)，所以要加宽度
+//麻烦：加了浮动，ul又要clear:both;所以这个方法很麻烦，不建议使用
+}
+a{float:left;} 
+span{float:right;} 
+
+3.2.给li加vertical-align:top|middle|bottom;
+
+
+ul{margin:0;padding:0;list-type:none;}
+a{text-decoration:none;}
+.list{width:300px;}
+.list li{height:30px;line-height:30px;border:1px solid #000;
+float:left;//因为内容浮动，li没浮动就会出现几px间隙，所以给li加浮动
+vertical-align:top;//但是加了浮动没宽度，li就会挤在一起(宽度根据内容来定)，所以给li加vertical-align:top|middle|bottom;
+}
+a{float:left;} 
+span{float:right;} 
+
+vertical-align:top|middle|bottom;的作用，在需要垂直方向对齐的时候使用，每个参与对齐的元素都要使用这个属性
+注意：vertical-align:top|middle|bottom;对于浮动float元素无效，因为浮动float元素默认就是顶部对齐了，不想顶部对齐，只能使用margin来控制了
+
+
+vertical-align另一个常用的地方就是清除img元素的空隙问题！！！
+img{vertical-align:top;} //清除点父级元素中的空隙
+
+*/
+ul{margin:0;padding:0;list-type:none;}
+a{text-decoration:none;}
+.list{width:300px;}
+.list li{height:30px;line-height:30px;border:1px solid #000;
+float:left;
+vertical-align:top;
+}
+a{float:left;} 
+span{float:right;} 
+
+</style>
+</head>
+<body>
+
+
+
+<ul class="list">
+	<li>
+		<a href="#">文字</a>
+		<span>作者</span>
+	</li>
+	<li>
+		<a href="#">文字</a>
+		<span>作者</span>
+	</li>
+	<li>
+		<a href="#">文字</a>
+		<span>作者</span>
+	</li>
+
+</ul>
+
+
+
+
+
+
+
+</body>
+</html>

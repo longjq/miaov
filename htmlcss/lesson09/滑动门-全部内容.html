@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    /*
+    扩展性的可能不大时，建议使用两层嵌套，节约时间，否则可以使用三层嵌套或者css偏移定位实现
+     */
+<style type="text/css">
+body,ul{margin: 0;padding: 0;}
+li{list-style-type: none;}
+a{text-decoration: none;}
+body{background: #23232f;padding: 50px;}
+.nav{background: #0f0f14 url(img/navL.gif) no-repeat; float: left;}
+.navR{background: url(img/navR.gif) no-repeat right 0;float: right;float: left;padding: 4px 4px 0 3px;}
+.nav li{float: left;padding-left: 1px}
+.nav a{float: left;background: url(img/btn2.png) no-repeat;}
+.nav a:hover , .nav .active{background-image: url(img/hoverA.png);}
+.nav a:hover span , .nav .active span{background-image: url(img/hoverR.png);}
+.nav span{float: left;background: url(img/btnR.gif) no-repeat right 0;height: 31px;font-size: 14px;line-height: 30px;color: #fff;padding: 0 18px;}
+/**
+ * 元素的内容由内容撑开
+ *
+ *  display:inline;
+ *  display:inline-block;
+ *  float;
+ *  position:absolute;
+ *  position:fixed;
+ *  
+ */
+</style>
+</head>
+<body>
+
+
+<div class="nav">
+    <ul class="navR">
+        <li><a href="#" class="active"><span>miaov</span></a></li>
+        <li><a href="#"><span>miaov</span></a></li>
+        <li><a href="#"><span>miaov</span></a></li>
+        <li><a href="#"><span>miaov</span></a></li>
+        <li><a href="#"><span>miaov</span></a></li>
+    </ul>
+</div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+img{
+    position: absolute;top: 200px;left: 300px;
+}
+</style>
+<script type="text/javascript" src="getstyle.js"></script>
+<script>
+window.onload=function(){
+    var oImg = document.getElementById('img1');
+
+    oImg.onclick=function(){
+
+        shake(oImg,'left',function(){
+            shake(oImg,'top',function(){
+                alert('都完了');
+            });
+        });
+
+    };
+
+    function shake(obj,attr,callback){
+       
+        var pos = parseInt(getStyle(obj,attr));
+
+        var timer = null;
+        var num = 0;
+
+        var arr = [];
+        for (var i = 20 ; i > 0 ; i-=2){
+            arr.push(i,-i);
+        }
+        arr.push(0);
+        
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function(){
+            obj.style[
+            attr]=pos+arr[num]+'px';
+            num++;
+            if (num === arr.length) {
+                clearInterval(obj.timer);
+                callback();
+            };
+        },50);
+    }
+};
+</script>
+</head>
+<body>
+<img src="img/1.jpg" id="img1" alt="">
+</body>
+</html>

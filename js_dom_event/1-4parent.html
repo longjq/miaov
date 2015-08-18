@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+window.onload=function(){
+  var oUl = document.getElementById('ul1');
+  
+  var aA = document.getElementsByTagName('a');
+
+  /*
+
+    元素.offsetParent：只读 属性 离当前元素最近的一个有定位属性(position)的父节点
+
+    如果没有定位属性的父级，默认父节点就是body
+
+    ie7和以下，如果当前元素的父节点如果有定位则是html
+
+    ie7以下，如果当前元素的某个父级触发了layout，那么offsetParent就会被指向到这个除服了layout特性的父节点上！
+
+    ###.currentStyle.hasLayout
+    true：就是触发了layout特性
+    false：就是没有触发layout特性
+
+  */
+
+  alert(aA[3].offsetParent.id);
+
+  for (var i = 0; i < aA.length; i++) {
+    aA[i].onclick=function(){
+      /*
+        parentNode：只读 属性 当前元素的父节点
+
+
+      */
+      this.parentNode.style.display = 'none'; 
+
+    };
+  };
+};
+    
+
+</script>
+</head>
+<body id="body1">
+<ul id="ul1" class="list">
+    <li>1111 <a href="javascript:void(0);">影藏</a></li>
+    <li>2222 <a href="javascript:void(0);">影藏</a></li>
+    <li>3333 <a href="javascript:void(0);">影藏</a></li>
+    <li>4444 <a href="javascript:void(0);">影藏</a></li>
+</ul>
+
+</body>
+</html>

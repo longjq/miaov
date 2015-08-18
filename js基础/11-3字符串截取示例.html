@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+window.onload=function(){
+    var oP = document.getElementsByTagName('p')[0];
+    var oSpan = document.getElementsByTagName('span')[0];
+    var oA = oP.getElementsByTagName('a')[0];
+    var str = oSpan.innerHTML;
+    var isOpen = true;
+    oA.onclick = function() {
+
+        if (isOpen) {
+            oSpan.innerHTML = str.substring(0,131);
+            oA.innerHTML = '展开';
+            isOpen = false;
+        }else{
+            oSpan.innerHTML = str;
+            oA.innerHTML = '收缩';
+            isOpen = true;
+
+        }
+    }
+};
+</script>
+</head>
+<body>
+
+
+<p><span>展学以致用，展示学员们各种创意作品，牛逼的前端工程师从这里起步。60 / 323妙味零基础班（PC、移动端、响应 ...2015-7-10 13:25 qianduan_ss技术交流    技术交流 (21)提出你的问题，分享你的经验，让学习变得轻松有趣……版主: 创美易-miaov4035 / 1万   JS函数传参问题5 小时前 bokebi520妙味照片墙   妙味照片墙展示学员在妙味的学习生活照、个人秀、合影、活动秀……39 / 272    妙味课堂基础班小伙伴的植物园一 ...2015-4-17 16:57 riversl意见与反馈   意见与反馈 (1)有任何想法、意见、建议，都可在此畅所欲言，我们会悉心倾听，回复大家的~
+</span><a href="javascript:void(0);">收缩</a></p>
+
+</body>
+</html>

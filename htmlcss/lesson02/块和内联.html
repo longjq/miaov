@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	
+	<style type="text/css">
+	/* 
+	
+	内嵌(内联、行内)的特征
+	1、同排可以继续跟同类的标签
+	2、内容撑开宽度
+	3、不支持宽高
+	4、不支持上下的margin和padding
+	5、代码换行被解析（换行会被）
+
+
+	块的特征
+	1、默认独占一行 
+	2、没有宽度时，默认撑满一排
+	3、支持所有css命令
+
+	
+	*/
+	body{margin:0;padding:0;}
+	/*下面的span的margin和padding只有左右方向有作用，上下方向无作用！！！*/
+	/*span{margin:100px;padding:100px;width:300px;background:red;}*/
+	span{background:red;}
+
+
+	</style>
+	
+</head>
+<body>
+<span>span</span><!--内联间的换行会被解析，显示一个小小的空格在页面上-->
+<span>span</span><span>span</span><!--前面两个内联没有换行，所以两个元素紧挨在一起-->
+
+
+
+	<div>div</div>
+		<div>div</div>
+			<div>div</div>
+</body>
+</html>

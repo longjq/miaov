@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+// //比较编码值，可以通过charCodeAt获取编码值，如果第一个字符比较出结果，后面的就不比较了
+// alert('longjq'>'龙建清');
+
+// //比较最终的是编码，得到的结果是false，因为'2'的编码值比'10000'大
+// alert('10000'>'2');
+
+
+var str = '妙味课堂是一致独具特殊的IT培训团队';
+
+//substring，截取字符串
+//substring(4)，从第四个位置开始截取，之前的不要
+//substring(2,4)，从第二个位置截取，取到第四位即停止
+//substring(4,2)4,2会被调换位置，变成2,4截取
+//substring(-3,2)-3会被处理成0，变成0,2截取
+//substring(2,-3)2,-3被调换位置，变成-3,2此时-3再变成0，即0,2
+//alert(str.substring(-4,2));
+
+//slice，截取字符串
+//slice(2,0)和substring不一样，不交换位置，即，从位置2取到位置0，取不到值！！返回空字符串
+//slice(-2)从倒数开始取，即从后面往前面取2个字符
+//slice(-4,-2)，变成倒数第4个位置，取到倒数第2个位置
+alert(str.slice(-2,-4)); //取不到值，返回空字符串
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

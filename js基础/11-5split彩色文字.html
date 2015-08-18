@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="box">
+   
+</div>
+
+<input type="text" name="" id="">
+<input type="button" value="button">
+
+<script>
+var oDiv = document.getElementById('box');
+var alnp = document.getElementsByTagName('input');
+var arrColor = ['#FFC','#CC3','#6FC','#9C9'];
+
+alnp[1].onclick=function(){
+    var str = alnp[0].value; //妙味课堂
+    var arr = str.split(''); //['妙','味','课','堂']
+
+    for (var i = 0; i < arr.length; i++) {
+        arr[i] = '<span style="background:' + arrColor[i%arrColor.length] + '">' + arr[i]+ '</span>';
+    };
+
+    oDiv.innerHTML += arr.join('');
+};
+</script>
+</body>
+</html>

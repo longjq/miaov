@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script type="text/javascript" src="getStyle.js"></script>
+<script type="text/javascript" src="doMove.js"></script>
+<script>
+window.onload=function(){
+    var str = '';
+    var len = 10;
+    var timer = null;
+    var aDiv = document.getElementsByTagName('div');
+    var num = 0;
+
+
+    for (var i = 0; i < len; i++) {
+
+        str += '<div style="width: 50px;height: 50px;background: red;position:absolute;top: 0px;left: '+ i*60 +'px;"></div>'
+    };
+
+    document.body.innerHTML = str;
+
+    document.body.onclick = function(){
+
+        clearInterval(timer);
+        timer = setInterval(function(){
+            if (document.flag) {
+                doMove(aDiv[num],'top',23,10);
+                num++;
+
+            }else{
+                doMove(aDiv[num],'top',23,500);
+                num++;
+            }
+            
+            if (num === len) {
+                document.flag = !document.flag;
+                num = 0;
+                clearInterval(timer);
+            };
+        },100);
+    };    
+};
+</script>
+</head>
+<body>
+    
+</body>
+</html>

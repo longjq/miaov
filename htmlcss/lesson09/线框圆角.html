@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style type="text/css">
+/*带线框的自动扩展圆角*/
+
+/*
+
+注意：.boxHead和.boxFoot的样式，在ie6/7下的最小高度19px个的bug，故这里要设置overflow:hidden;
+
+ */
+
+.box{width: 200px;margin: 30px auto;}
+.boxHead{background:url(img2/boxH.png) repeat-x; height: 9px;overflow: hidden;}
+.boxHeadL{background: url(img2/boxHL.png) no-repeat;}
+.boxHeadR{background: url(img2/boxHR.png) no-repeat right 0;height: 9px;}
+
+.boxFoot{background: url(img2/boxF.png) repeat-x; height: 9px; overflow: hidden;}
+.boxFootL{background: url(img2/boxFL.png) no-repeat;}
+.boxFootR{background: url(img2/boxFR.png) no-repeat right 0; height: 9px;}
+.boxC{border-left: 1px solid #ccc;border-right: 1px solid #e5e5e5;}
+p{margin: 0;padding: 5px;}
+</style>
+</head>
+<body>
+ 
+<div class="box">
+    <div class="boxHead">
+        <div class="boxHeadL">
+            <div class="boxHeadR"></div>
+        </div>
+    </div>
+    <div class="boxC">
+        <p>听人说这是一个很感人的故事的</p><p>听人说这是一个很感人的故事的</p><p>听人说这是一个很感人的故事的</p><p>听人说这是一个很感人的故事的</p><p>听人说这是一个很感人的故事的</p>
+    </div>
+    <div class="boxFoot">
+        <div class="boxFootL">
+            <div class="boxFootR"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

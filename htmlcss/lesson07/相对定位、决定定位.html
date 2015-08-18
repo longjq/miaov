@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        /*
+        position:relative;  相对定位
+        a、不影响元素本身的特性；
+        b、不使元素脱离文档流；
+        c、如果没有定位偏移量，对元素本身没有任何影响
+
+
+        注意：定位的等级根据先后顺序出现，即后者层级大于前者
+
+        position:absolute;  绝对定位
+        a、使元素完全脱离文档流；
+        b、使内嵌支持宽高；
+        c、块属性标签内容撑开宽度；
+        d、如果有定位父级相对于定位父级发生偏移，没有定位父级相对于整个文档发生偏移；
+        e、相对定位一般都是配合绝对定位元素使用；
+
+         */
+        
+
+
+
+
+    .parent{
+        border: 2px solid red;
+        padding:10px;
+        width: 300px;
+        height: 300px;
+        margin: 90px auto;
+        position: relative;
+    }
+    .parent a{
+        width: 100px;height: 100px;line-height: 100px;
+        text-align: center;background: red;position: absolute;
+        text-decoration: none;color: #fff;font-weight:bold;
+    }
+    .link1{
+        top: 10px;
+        left:10px;
+    }
+    .link2{
+        top: 10px;
+        right: 10px;
+    }
+    a.link3{
+        top: 110px;
+        left: 110px;
+        background: yellow;
+    }
+    .link4{
+        left: 10px;
+        bottom: 10px;
+    }
+    .link5{
+        right: 10px;
+        bottom: 10px;
+    }
+
+
+
+
+    .parent2{
+        width: 302px;
+        height: 302px;
+        position: relative;
+        margin:0 auto;
+    }
+    .parent2 a{
+        background: #00ccff;
+        border: 1px solid #cc0000;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        line-height: 100px;
+    }
+    .a1{
+        top: 0;
+        left: 0;
+    }
+    .a2{
+        top: 50px;
+        left: 50px;
+    }
+    a.a3{
+        top: 100px;
+        left: 100px;
+        background: yellow;
+    }
+    .a4{
+        top: 150px;
+        left: 150px;
+    }
+    .a5{
+        top: 200px;
+        left: 200px;
+    }
+
+    </style>    
+
+</head>
+<body>
+    <div class="parent">
+        <a href="#" class="link1">link1</a>
+        <a href="#" class="link2">link2</a>
+        <a href="#" class="link3">link3</a>
+        <a href="#" class="link4">link4</a>
+        <a href="#" class="link5">link5</a>
+    </div>
+
+
+    <div class="parent2">
+        <a href="#" class="a1">a1</a>
+        <a href="#" class="a2">a2</a>
+        <a href="#" class="a3">a3</a>
+        <a href="#" class="a4">a4</a>
+        <a href="#" class="a5">a5</a>
+    </div>
+</body>
+</html>

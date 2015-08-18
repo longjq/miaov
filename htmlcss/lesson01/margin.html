@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+/* margin */
+/* 注意一：上下两个margin，不会叠加，会重叠，取大值！！！ */
+/* 注意二：两个div嵌套，内div会带动外div的外边距margin（父子级包含时，子级的margin会传到父级），所以子级在父级的内容中，所以要设置父级的padding值*/
+	#box1{
+	width:200px;
+	height:300px;
+	background:red;
+	margin-bottom:30px;/*注意一：上下叠加，取大值*/
+	margin:auto;
+	}
+	#box2{
+	width:200px;
+	height:100px;
+	background:green;
+	margin-top:60px;/*注意一：上下叠加，取大值*/
+	/* margin-left:auto; 距右显示，让左边的宽度根据浏览器宽度显示*/
+	/* margin-right:auto; 距左显示，让右边的宽度根据浏览器宽度显示*/
+	margin:auto;/*左右抵消，居中显示，上下冲掉之前设置的值，修改为auto*/
+	}
+	
+	</style>
+</head>
+<body>
+	<div id="box1"></div>
+
+	<div id="box2"></div>
+	
+</body>
+</html>

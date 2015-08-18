@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+window.onload=function(){
+    var oUl = document.getElementById('ul1');
+   /*
+    元素.children：只读 属性 子节点集合类型
+    标准下：只包含元素结点类型
+    非标准下：只包含元素类型的结点
+
+
+   */
+   alert(oUl.children.length);
+};
+    
+
+</script>
+</head>
+<body>
+<ul id="ul1" class="list">
+    <li>1111</li>
+    <li>2222</li>
+    <li>3333</li>
+    <li>4444</li>
+</ul>
+
+</body>
+</html>

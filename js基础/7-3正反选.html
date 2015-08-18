@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+window.onload=function(){
+    var alnp = document.getElementsByTagName('input');
+    var  oBtn = document.getElementById('fx');
+
+    oBtn.onclick = function(){
+        for (var i = 0; i < alnp.length; i++) {
+            //使用！运算符取反
+            alnp[i].checked = !alnp[i].checked;
+        // if (alnp[i].checked) {
+        //     alnp[i].checked = false;
+        // }else{
+        //     alnp[i].checked = true;
+        // }
+    };
+    };
+
+};
+
+</script>
+</head>
+<body>
+<input type="button" id="fx" value="反选">
+<ul>
+    <li><input type="checkbox" name="" id=""></li>
+    <li><input type="checkbox" name="" id=""></li>
+    <li><input type="checkbox" name="" id=""></li>
+    <li><input type="checkbox" name="" id=""></li>
+</ul>
+</body>
+</html>

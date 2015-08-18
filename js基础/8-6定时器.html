@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+    /*
+    定时器：时间概念
+    var timer = setInterval(函数,执行时间单位：毫秒);重复不断的执行，最小单位是14，jquery定的
+    clearInterval(timer);//清除定时器
+
+    var timer2 = setTimeout(函数,执行时间单位：毫秒);只执行一次
+    clearTimeout(timer2);
+     */
+var i =0;
+function fn1(){
+    i++;
+    document.title = i;
+    
+
+    if (i == 10) {
+        clearInterval(timer);
+    };
+}
+//fn1(); //方法调用
+//document.onclick=fn1; //事件调用
+var timer = setInterval(fn1,1000);  //时间调用
+
+//3秒显示弹窗
+var timer2 = setTimeout(fn2,3000);
+function fn2(){
+    document.getElementById('hide').style.display='block';
+    //显示3秒后消失
+    setTimeout(function(){
+        document.getElementById('hide').style.display='none';
+    },3000);
+
+};
+</script>
+<style>
+#hide{
+    display: none;
+    width: 300px;
+    height: 300px;
+    background: red;
+}
+</style>
+</head>
+<body>
+<div id="hide"></div>
+</body>
+</html>

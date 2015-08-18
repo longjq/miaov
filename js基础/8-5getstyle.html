@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#box{background: red;width: 100px;height: 300px;}
+</style>
+<script type="text/javascript" src="miaov.js"></script>
+</head>
+<body>
+
+<input type="button" id="btn" value="获取">
+<div id="box"></div>
+<script>
+
+$('btn').onclick = function() {
+    alert(getStyle($('box'),'height'));
+    /*
+    获取浏览器计算后的样式，包括css或js操作后的dom元素的样式值
+    background:url() red repeat-x....(复合样式，不要获取)
+    backgroundColor                  (单一样式，浏览器不兼容，不要用来做判断)
+    不要有空格
+    不要获取未设置的样式，浏览器不兼容
+     */
+};
+
+function getStyle(obj, attr){
+    //getComputedStyle在火狐4.0之前有bug，需要传入两个参数，第二个随意类型
+    //如：getComputedStyle(obj,250)
+    return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr];
+}
+</script>
+
+</body>
+</html>

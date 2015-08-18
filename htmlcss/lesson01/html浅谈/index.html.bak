@@ -1,0 +1,16 @@
+<!DOCTYPE HTML> 
+! 注意，会议一下马路上出现故障时的叹号
+DOC 文档
+TYPE 类型
+HTML 语言文档
+连起来就是声明文档类型为 HTML 文档
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+声明代码格式为UTF代码格式，utf-8按照国际代码格式
+<title></title>
+</head>
+<body>
+	你好，世界
+</body>
+</html>

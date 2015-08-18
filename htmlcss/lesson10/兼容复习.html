@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style type="text/css">
+
+.box{height: 2px;background: red;}
+
+/*
+1.在ie6下最小高度19px问题
+  说明：在ie6下元素的高度小于19px的时候，会被当做19px来处理
+  解决方案：overflow:hidden;
+.box{height: 2px;background: red;}
+<div class="box"></div>
+
+2.在ie6下，1px像素的dotted的问题
+  解决方案：切背景平铺
+
+3.在ie6下解决margin传递要触发haslayout
+  在ie6下父级有边框， 子元素的margin值消失了
+  解决方案：触发父级的haslayout
+
+4.在ie6下只支持四种跟a标签的伪类
+
+5.img的特性是display:inline-block类型
+
+6.ie6的双边距
+  说明：在ie6下，快元素有浮动和横向的margin的值，横向的margin值会被放大成两倍
+  解决方法：display:inline;
+
+7.ie6/7下，li本身没浮动，里面的内容有浮动，就会有3px的间隙
+  解决办法：
+  1、li加浮动，但是加了浮动后，要给li加宽度，同时ul也要清浮动
+  2、li加vertical-align:top即可
+
+  注意：当ie6最小高度和li的间隙同时出现时！！！
+  首先，给li设置vertical-align:top;和overflow:hidden;
+  此时最小高度解决了，但是出现间隙问题
+  li再加浮动float:left;在给li设置宽度解决！
+
+8、当一行子元素占有的宽度之和和父级的宽度相差超过3px，或者有不满一行状态的时候，最后一行的子元素的下margin在ie6下就会失效
+   解决方案：暂无。。。。
+
+9、ie6下的文字溢出
+   子元素的宽度和父元素的宽度小于3px的时候
+   两个浮动元素中间有注释或者内联元素的时候
+   解决方法：div包起来就好了
+
+ */
+</style>
+</head>
+<body>
+<div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+<script>
+
+
+$(function(){
+    $('btn').onclick=function(){
+        $(this).style.background='yellow';
+    };
+});
+
+function $(v){
+    if (typeof v === 'function') {
+        window.onload=v;
+    }else if(typeof v === 'string'){
+        return document.getElementById(v);
+    }else if(typeof v === 'object'){
+        return v;
+    }
+}
+
+</script>
+
+</head>
+<body>
+
+<input type="button" value="惦记我" id="btn">
+<div id="box"></div>
+</body>
+</html>

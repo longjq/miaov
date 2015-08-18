@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    #btn{
+        background: red;
+        color: #fff;
+    }
+    #d{
+        margin: 30px 0 0 0;
+        width: 300px;
+        height: 300px;
+        border: 3px solid #000;
+    }
+    #setting{
+        display: none;
+    }
+    </style>
+    <script>
+    window.onload = function(){
+        var btn = document.getElementById('btn');
+        var d   = document.getElementById('d');
+        var setting = document.getElementById('setting');
+
+        var no = document.getElementById('no');
+        var yes = document.getElementById('yes');
+
+        btn.onclick = function(){
+            setting.style.display = 'block';
+        };
+        
+        yes.onclick = function(){
+            setting.style.display = 'none';
+        };
+
+        no.onclick = function(){
+            d.style.width = '200px';
+            d.style.height = '200px';
+            d.style.background = '#fff';
+            setting.style.display = 'none';
+        };    
+    };
+
+
+    function settingDiv(dom,w,h,bgcolor) {
+        var obj   = document.getElementById(dom);
+        if (w!=0) {obj.style.width = w+'px';};
+        if (h!=0) {obj.style.height = h+'px';};
+        if (bgcolor!=null) {obj.style.background=bgcolor};
+    }
+
+    </script>
+</head>
+<body>
+    <div id="box">
+        设置样式：<span id="btn">点击设置</span>
+        <div id="d"></div>
+        <div id="setting">
+            <div>设置背景色：<a href="javascript:settingDiv('d',0,0,'red');">红</a> <a href="javascript:settingDiv('d',0,0,'green');;">绿</a> <a href="javascript:javascript:settingDiv('d',0,0,'yellow');;">黄</a></div>
+            <div>设置宽度px：<a href="javascript:settingDiv('d',200,0,null);">200</a> <a href="javascript:settingDiv('d',300,0,null);">300</a> <a href="javascript:settingDiv('d',400,0,null);">400</a></div>
+            <div>设置高度px：<a href="javascript:settingDiv('d',0,200,null);">200</a> <a href="javascript:settingDiv('d',0,300,null);">300</a> <a href="javascript:settingDiv('d',0,400,null);">300</a></div>
+            <span id="no">恢复</span>
+            <span id="yes">确定</span>
+        </div>
+    </div>
+</body>
+</html>

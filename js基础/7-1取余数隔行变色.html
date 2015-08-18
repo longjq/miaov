@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+li{margin: 3px 0;}
+</style>
+<script>
+/*
+0%3 = 0
+1%3 = 1
+2%3 = 2
+3%3 = 0
+...
+...
+
+
+ */
+window.onload=function(){
+    var aLi = document.getElementsByTagName('li');
+
+    var arr = ['yellow','red','blue'];
+
+    for (var i = 0; i < aLi.length; i++) {
+        //方式一:使用下标属性取摸的方式实现背景色
+        aLi[i].index = i;
+
+        //取余数的方式实现隔行变色
+        aLi[i].style.background = arr[i%arr.length];
+        var str = '';
+        aLi[i].onmouseover = function(){
+            //方式二：先存颜色，移出的时候再取
+            str = this.style.background;
+            this.style.background = 'grey';
+        };
+
+        aLi[i].onmouseout = function(){
+            //方式一：使用下标属性取摸的方式实现背景色
+            //this.style.background = arr[this.index%arr.length];
+            //方式二：先存颜色，移出的时候再取
+            this.style.background = str;
+        };
+    };
+};
+</script>
+
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

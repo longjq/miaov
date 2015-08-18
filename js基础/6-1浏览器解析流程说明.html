@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+
+/**
+ * "js解析器"
+ * 1）首先“找东西”:var function 参数
+ * a = ...
+ *     所有的变量，在正式运行代码前都是未定义
+ * a = function fn1(){alert(1);};
+ *
+ * 遇到重名的时候，只保留已定义的值，以上保留a方法
+ * 
+ * 
+ * 所有的函数，在正式运行代码前，都是代码块
+ * 以上这个步骤叫做js的预解析
+ * 
+ * 2）逐行解读代码：
+ * 表达式：= + - * % ++ -- ！ 参数....
+ * 一切改变值得操作
+ */
+alert(a); //经过预解析，这里是a变量是未定义
+var a = 1; //经过逐行解读代码。这里赋值表达式改变值内容
+function a(){alert(1);};//经过预解析，复制整个代码块不执行，真正调用时执行，实现懒加载
+
+
+
+/**
+ * 预解析和逐行解读代码
+ * 1、首先预解析
+ *     1：var a定义未定义
+ *     2：加载方法function a(){alert(2);};
+ *     3：var a定义未定义
+ *     4：加载方法function a(){alert(4);};
+ * 2、逐行解读代码
+ *     1：a此时是最后一个方法function a(){alert(4);};
+ *     2：此时a被表达式=改变，值变成1
+ *     3：alert（a）结果1
+ *     4：方法声明，无意义function a(){alert(2);};
+ *     5：alert（a）结果1
+ *     6：此时a被表达式=改变，值变成3
+ *     7：alert（a）结果3
+ *     8：方法声明，无意义function a(){alert(4);};
+ *     9：alert（a）结果3
+ *     10：a此时是变量3，不是方法了，报错
+ */
+alert(a);
+var a = 1;
+alert(a);
+function a(){alert(2);};
+alert(a);
+var a = 3;
+alert(a);
+function a(){alert(4);};
+alert(a);
+a();
+
+/**
+ * <script>
+ *
+ * alert(a); //找不到下面的a = 1，js是先预解析，在执行代码的，这里是未定义！！！
+ * 
+ * </script>
+ *
+ *
+ * <script>
+ *
+ * var a = 1;
+ * 
+ * </script>
+ *
+ * 
+ */
+
+/**
+ * <script>
+ *
+ * var a = 1;
+ * 
+ * </script>
+ *
+ *
+ * <script>
+ *
+ * alert(a); //这里是可以找到a变量的，注意预解析和代码执行的顺序
+ * 
+ * </script>
+ *
+ * 
+ */
+
+
+/*
+
+var a = 1;
+function fn1(){
+    alert(a);
+    var a = 2;
+}
+fn1();
+alert(a);
+
+1、预解析（找var和function和参数）
+    1：var a ...
+    2：function fn1(){alert(a);var a = 2;}
+2、逐行代码执行
+    1：a赋值 = 1
+    2：方法声明不管
+    3：执行方法，进入局部作用域
+    4-1：局部作用域开始
+        1：局部预解析（找var和function和参数）
+            1 var a //未定义undefined，注意这里是局部变量a！！！
+        2：局部代码执行
+            1 执行代码alert（a），a变量在局部预解析是未定义a，所以是未定义输出
+    4-2：局部作用域结束
+    5：执行代码alert（a）全局变量输出
+*/
+
+
+/**
+作用域链的说明
+
+var a = 1;
+function fn1(){
+    alert(a);
+    a = 2;
+}
+fn1();
+alert(a);
+
+1、预解析（找var和function和参数）
+    1：var a = ....未定义undefined
+    2：function fn1(){alert(a);a = 2;}复制代码块
+2、逐行代码执行
+    1：var a = 1; 赋值给预解析的a变量
+    2：方法声明，跳过
+    3：执行方法进入局部作用域
+    4-1：开始方法局部作用域
+        1 预解析（找var和function和参数）
+            1 无操作
+        2 逐行代码执行
+            1 查找局部作用域a变量声明，找不到，就去外部找，从里到外，这就是作用域链的效果，找到外部变量a，这里alert（a） 变量 1
+            2 执行赋值操作 a = 2，注意，这里操作的是全局的预解析的变量a，不是局部变量a！！！
+    4-2：结束方法局部作用域
+    5：alert（a）变量 2
+ */
+
+
+/*
+var a = 1;
+function fn1(a){
+    alert(a);
+    a = 2;
+}
+fn1();
+alert(a);
+
+
+1、预解析（找var和function和参数）
+    1：找到var a
+    2：方法声明function fn1(a){alert(a);a = 2;}复制代码块
+
+2、逐行代码执行
+    1：var a = 1赋值操作预解析找到的a变量
+    2：方法声明，跳过
+    3：方法执行，进入方法代码块
+    4-1：开始方法局部作用域
+        1、预解析（找var和function和参数）
+            1 找到参数 a
+        2、逐行代码执行
+            1 alert（a），此时的a是局部预解析时的参数 a，a参数的形参没有，就是未定义的undefined
+            2 找到局部的 参数 a，a没有形参，但是这里设置为了局部的 a = 2
+    4-2：结束方法局部作用域
+    5：alert（a） 全局变量 1 
+ */
+
+
+/*
+var a = 1;
+function fn1(a){
+    alert(a);
+    a = 2;
+}
+fn1(a);
+alert(a);
+
+
+1、预解析（找var和function和参数）
+    1：找到var a
+    2：方法声明function fn1(a){alert(a);a = 2;}复制代码块
+
+2、逐行代码执行
+    1：var a = 1赋值操作预解析找到的a变量
+    2：方法声明，跳过
+    3：方法执行，进入方法代码块
+    4-1：开始方法局部作用域
+        1、预解析（找var和function和参数）
+            1 找到参数 a = undefined
+        2、逐行代码执行
+            1 参数这里形参给了1，所以，第一步是设置参数 var a = 1 
+            2 alert（a），此时的a是局部预解析时的参数 a，a参数的形参传入1，所以alert（a） 传入的 1
+            3 找到局部的 参数 a，a有形参 1，但是这里设置为了 局部的 a = 2 
+    4-2：结束方法局部作用域
+    5：alert（a） 全局变量 1 
+ */
+
+
+/*
+
+两种方式获取函数内的变量
+1、设置一个全局变量获取
+var str = '';
+function fn1(){
+    var a = 123;
+    str = a;
+}
+fn1();
+alert(str); //123
+
+
+2、通过函数调用获取
+function fn1(){
+    var a = '9999';
+    fn3(a);
+}
+function fn3(a){
+    alert(a); 
+}
+fn1(); //输出fn3的alert(a) 9999
+
+
+
+
+ */
+
+
+
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

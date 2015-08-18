@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cn"> 
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+span{background: #06f;}
+</style>
+</head>
+<body>
+<input type="text" name="" id="">
+<input type="button" value="查找">
+
+<input type="text" name="" id="">
+<input type="text" name="" id="">
+<input type="button" value="替换">
+<p>妙味课堂是一致独具特殊的IT培训团队，妙味反对传统IT教育枯燥乏味的教学模式，妙味提供一种全新的快乐学习方法！<br>
+妙味课堂是一致独具特殊的IT培训团队，妙味反对传统IT教育枯燥乏味的教学模式，妙味提供一种全新的快乐学习方法！</p>
+
+<script>
+var aInp = document.getElementsByTagName('input');
+
+var oP = document.getElementsByTagName('p')[0];
+
+aInp[1].onclick = function(){
+    var str = aInp[0].value;
+    if (!str) return;
+    oP.innerHTML = oP.innerHTML.split(str).join('<span>'+str+'</span>');
+};
+
+aInp[4].onclick = function(){
+    var oldstr = aInp[2].value;
+    var newstr = aInp[3].value;
+
+    if (!oldstr) return;
+
+    oP.innerHTML = oP.innerHTML.split(oldstr).join(newstr);
+};
+</script>
+</body>
+</html>

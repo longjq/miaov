@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+ul{
+    background: red;
+    height: 300px;
+}
+li{
+    list-style-type: none;    
+}
+</style>
+<script>
+window.onload=function(){
+
+    var aLi = document.getElementsByTagName('li');
+    var str = document.getElementsByTagName('span')[0];
+    var emptyStar = '☆';
+    var star = '★';
+
+    for (var i = 1; i <= aLi.length; i++) {
+        aLi[i].index = i;
+        aLi[i].onmouseover = function(){
+            if (this.index>0 && 3>this.index) {
+                //1-2之内
+                this.innerHTML = star;
+                str.innerHTML = '一般般';
+            }else if(this.index>3 && aLi.length<this.index){
+                //3-4之内
+                this.innerHTML = star;
+                str.innerHTML = '看起来不错';
+            }else{
+                //最大值5
+                this.innerHTML = star;
+                str.innerHTML = '非常好，已经登峰造极了！';
+            }
+        };
+
+        aLi[i].onmouseout = function(){
+            if (this.index>0 && 3>this.index) {
+                //1-2之内
+                this.innerHTML = emptyStar;
+                str.innerHTML = '一般般';
+            }else if(this.index>3 && aLi.length<this.index){
+                //3-4之内
+                this.innerHTML = emptyStar;
+                str.innerHTML = '看起来不错';
+            }else{
+                //最大值5
+                this.innerHTML = emptyStar;
+                str.innerHTML = '非常好，已经登峰造极了！';
+            }
+        }
+    };
+
+    
+
+};
+</script>
+</head>
+<body>
+
+<strong>总体评级</strong>
+<ul>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+</ul>
+<span>小提示</span>
+</body>
+</html>
