@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+window.onload=function(){
+    var list =document.getElementById('list');
+
+    //1、创建结点
+    //document.createElement，注意必须是document结点才可以创建
+    var oLi = document.createElement('li');
+    //2、插入结点
+    list.appendChild(oLi);
+    //3、在指定元素前插入结点
+    //在ie中，如果ul没有子节点，那么list.children[0]语句会报错
+    //在其他浏览器中，会先调用list.appendChild(oLi);再执行insertBefore
+    //list.insertBefore(oLi,list.children[0]);
+    //兼容性方案
+    if (list.children[0]) {
+        list.insertBefore(oLi,list.children[0]);
+    }else{
+        list.appendChild(oLi);
+    }
+
+    //删除元素
+    //父级.removeChild()，注意，一定要在父级元素下操作
+    var oA = document.createElement('a');
+    oA.href='javascript:;';
+    oA.innerHTML='删除';
+    oA.onclick=function(){
+        list.removeChild(this.parentNode);
+    };
+
+    oLi.appendChild(oA);
+
+};
+</script>
+</head>
+<body>
+    <ul id="list"></ul>
+</body>
+</html>

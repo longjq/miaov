@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+window.onload=function(){
+    var box =document.getElementById('box');
+
+    //获取元素的几种方式
+    //1、点语法
+    //alert(box.id);
+    //2、中括号，中括号方式可以使用变量替代
+    //var name = 'id';
+    //alert(box[name]);
+    //alert(box['id']);
+    //3、getAttribute方法
+    //alert(box.getAttribute('name'));
+    
+    //设置值
+    //1、setAttribute方法
+    //alert(box.setAttribute('title','123'));
+    //2、点语法
+    //box.id='123123';
+    //3、中括号
+    //box.['pid'] = '123123';
+    //中括号可用变量替代
+    //var name = 'title';
+    //box[name] = '123123123123';
+    
+    //移除属性
+    //1、removeAttribute方法
+    //box.removeAttribute('id');
+    
+
+    //关于自定义属性
+    //1、在标准浏览器下，点语法和中括号不能使用，只有在ie8-以下可以使用！
+    //如何获取呢？同过getAttribute来获取
+    //alert(box.getAttibute('_name_'));
+    
+    //2、在获取img.src的时候，使用点语法和中括号，会把前面的url地址也给获取出来！！
+    //建议使用alert(img.getAttribute('src'));获取
+    
+    //js_hack，只有ie会执行下面这段语句！
+    //alert(img.style.getAttribute('width'));
+};
+</script>
+</head>
+<body>
+    <div id="box" _name_="自定义属性"></div>
+</body>
+</html>
