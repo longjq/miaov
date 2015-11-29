@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+body{margin: 0}
+.box{width: 900px;margin: 0 auto;border: 5px solid #000;}
+/* 
+三列布局
+错误的做法
+.box div{width: 300px;}
+.left1{height: 200px;background: red;float: left;}
+.left2{height: 300px;background: blue;float: left;}
+.left3{height: 240px;background: green;float: left;}
+.left4{height: 300px;background: pink;float: left;}
+.left5{height: 300px;background: #000;float: left;}
+
+浮动后的元素都会尽量和前一个元素的顶部对齐，如果宽度不够，就会掉下来，但是会紧挨着前一个元素下面
+ */
+
+/*三列布局 正确的做法*/
+.left{width: 300px;float: left;}
+.left div {height: 298px;background: #9f0;border: 1px solid #fff;}
+.center{width: 300px;float: left;}
+.center div{height: 198px;background: #cf0;border: 1px solid #fff;}
+.right{width: 300px;float: right;}
+.right div{height: 298px;background: #9f0;border: 1px solid #fff;}
+</style>
+</head>
+<body>
+
+<div class="box">
+    <div class="left">
+        <div class="left1"></div>
+        <div class="left2"></div>    
+    </div>
+    <div class="center">
+        <div class="left3"></div>
+        <div class="left4"></div>    
+    </div>    
+    <div class="right">
+        <div class="left5"></div>
+    </div>
+</div>
+
+</body>
+</html>

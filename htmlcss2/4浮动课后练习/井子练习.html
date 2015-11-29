@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+/*子元素浮动后，父元素包不住子元素，因为子元素已经脱离文档流了（半层）*/
+
+
+/*
+
+1.父级加高
+问题：扩展性不好
+
+2.父级浮动
+问题：页面中所有元素都加浮动，margin左右自动失效（floats bad ！）
+
+3.父级加inline-block 清浮动方法（不脱离文档流）：
+    问题：margin左右自动失效；
+
+4.空标签清浮动（在浮动元素下加class="clear"的方式）
+问题：IE6 最小高度 19px（小于19px的元素会被当成19px处理，使用font-size:0;可解决17px，最后还是会有2px的高度没能被解决，解决后IE6下还有2px偏差）
+
+5.br清浮动<br clear="all" />
+问题：不符合工作中：结构、样式、行为，三者分离的要求。
+
+6.after伪类 清浮动方法（现在主流方法）
+.clear:after{content:'';display:block;clear:both;}
+.clear{zoom:1;}
+
+after伪类： 元素内部末尾添加内容（即浮动元素的父级）；
+        :after{content"添加的内容";} IE6，7下不兼容
+zoom 缩放 
+        a、触发 IE下 haslayout，使元素根据自身内容计算宽高。
+        b、FF 不支持；
+
+haslayout = true，根据元素的内容大小或者父级的大小来重新计算当前元素的大小
+.clear{zoom:1;}
+.clear:after{content:'';clear:both;display:block;}
+
+
+7.overflow:hidden 清浮动方法；
+    问题：需要配合 宽度 或者 zoom 兼容IE6 IE7；
+
+
+overflow:  scroll | auto | hidden；
+    overflow:hidden;溢出隐藏（裁刀！）
+
+ */
+.clear{zoom:1;}
+.clear:after{content:'';display: block;clear: both;}
+/*井字*/
+.box{width: 600px;margin: 0 auto;}
+/*田字*/
+.box2{width: 600px;border: 1px solid #000;background: #ffffcc;margin: 0 auto;}
+
+.bb{border-bottom: 1px solid #000;}
+.bl{border-left: 1px solid #000;}
+.br{border-right: 1px solid #000;}
+
+.d1{width: 199px;height: 199px;float: left;}
+.d2{width: 200px;height: 199px;float: left;}
+.d3{width: 199px;height: 199px;float: left;}
+
+.d4{width: 199px;height: 199px;float: left;}
+.d5{width: 200px;height: 199px;float: left;}
+.d6{width: 199px;height: 199px;float: left;}
+
+.d7{width: 199px;height: 200px;float: left;}
+.d8{width: 200px;height: 200px;float: left;}
+.d9{width: 199px;height: 200px;float: left;}
+</style>
+</head>
+<body>
+
+<div class="box2 clear">
+    <div class="d1 bb br"></div>
+    <div class="d2 bb"></div>
+    <div class="d3 bb bl"></div>
+    <div class="d4 bb br"></div>
+    <div class="d5 bb"></div>
+    <div class="d6 bb bl"></div>
+    <div class="d7 br"></div>
+    <div class="d8"></div>
+    <div class="d9 bl"></div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+/*子元素浮动后，父元素包不住子元素，因为子元素已经脱离文档流了（半层）*/
+.box{width: 300px;margin: 0 auto; border: 10px solid #000;overflow: hidden;}
+.div{width: 200px;height: 200px;background: red;float: left;}
+
+.clear{height: 0;clear: both;}
+
+/*
+
+1.父级加高
+问题：扩展性不好
+
+2.父级浮动
+问题：页面中所有元素都加浮动，margin左右自动失效（floats bad ！）
+
+3.父级加inline-block 清浮动方法（不脱离文档流）：
+    问题：margin左右自动失效；
+
+4.空标签清浮动（在浮动元素下加class="clear"的方式）
+问题：IE6 最小高度 19px（小于19px的元素会被当成19px处理，使用font-size:0;可解决17px，最后还是会有2px的高度没能被解决，解决后IE6下还有2px偏差）
+
+5.br清浮动<br clear="all" />
+问题：不符合工作中：结构、样式、行为，三者分离的要求。
+
+6.after伪类 清浮动方法（现在主流方法）
+.clear:after{content:'';display:block;clear:both;}
+.clear{zoom:1;}
+
+after伪类： 元素内部末尾添加内容（即浮动元素的父级）；
+        :after{content"添加的内容";} IE6，7下不兼容
+zoom 缩放 
+        a、触发 IE下 haslayout，使元素根据自身内容计算宽高。
+        b、FF 不支持；
+
+haslayout = true，根据元素的内容大小或者父级的大小来重新计算当前元素的大小
+.clear{zoom:1;}
+.clear:after{content:'';clear:both;display:block;}
+
+
+7.overflow:hidden 清浮动方法；
+    问题：需要配合 宽度 或者 zoom 兼容IE6 IE7；
+
+
+overflow:  scroll | auto | hidden；
+    overflow:hidden;溢出隐藏（裁刀！）
+
+ */
+</style>
+</head>
+<body>
+
+<div class="box">
+    <div class="div">div2</div>
+</div>
+
+
+</body>
+</html>
