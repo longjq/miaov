@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+window.onload=function(){
+
+    var aBtn = document.getElementsByTagName('input');
+
+    var arr = ['a','b','c','d'];
+
+    for (var i = 0; i < aBtn.length; i++) {
+        aBtn[i].num = 0;
+        //按钮组实现自定义的操作
+        aBtn[i].onclick = function(){
+            this.value = arr[this.num];
+            this.num++;
+
+            if (this.num == arr.length) {
+                this.num = 0;
+            };
+        };
+    };
+
+};
+</script>
+</head>
+<body>
+    
+<input type="button" value="0">
+
+<input type="button" value="0">
+
+<input type="button" value="0">
+
+</body>
+</html>

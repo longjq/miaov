@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<input type="button" value="按钮" id="btn1" />
+<input type="button" value="按钮" id="btn2" onclick="alert(this);fn();" />
+<!-- 上面这个代码alert(this);指向[object HTMLInputElement] fn();指向[object window] -->
+<script>
+var btn1 = document.getElementById('btn1');
+
+//btn1.onclick = function(){
+    //fn();[object window]
+    //alert(this); [object HTMLInputElement]
+//};
+
+//btn1.onclick = fn; [object HTMLInputElement]
+
+
+// fn(); [object window]
+function fn(){
+    alert(this);
+}
+</script>
+</body>
+</html>
