@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+/**
+ * 
+
+position:relative;  相对定位
+        a、不影响元素本身的特性；
+b、不使元素脱离文档流；
+c、如果没有定位偏移量，对元素本身没有任何影响；
+
+定位元素位置控制
+        top/right/bottom/left  定位元素偏移量。
+
+
+
+position:absolute;  绝对定位（定位元素 默认后者的层级高于前者的定位层级）
+a、使元素完全脱离文档流；
+b、使内嵌支持宽高；
+c、块属性标签内容撑开宽度；
+d、如果有定位父级相对于定位父级发生偏移，没有定位父级相对于整个文档发生偏移；（该父级，不区分相对定位relative、还是绝对定位absolute）
+e、相对定位一般都是配合绝对定位元素使用；
+
+z-index:[number]；  定位层级
+        a、定位元素默认后者层级高于前者；
+ */
+
+.parent{border: 2px solid red;width: 300px;height: 300px;padding: 10px;margin: 90px auto;position: relative;}
+.parent a{width: 100px;height: 100px;line-height: 100px;background: red;text-align: center;color: #fff;position: absolute;font-weight: bold;text-decoration: none;}
+.link1{top: 10px;left: 10px;}
+.link2{top: 10px;right: 10px;}
+a.link3{top: 110px;right: 110px;background: blue;color: yellow;}
+.link4{bottom: 10px;left: 10px;}
+.link5{bottom: 10px;right: 10px;}
+</style>
+</head>
+<body>
+
+<div class="parent">
+    <a href="#" class="link1">link1</a>
+    <a href="#" class="link2">link2</a>
+    <a href="#" class="link3">link3</a>
+    <a href="#" class="link4">link4</a>
+    <a href="#" class="link5">link5</a>
+</div>
+
+</body>
+</html>

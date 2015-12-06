@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+table{border-collapse: collapse;}
+th,td{padding: 0;}
+
+table{width: 500px;}
+th,td{border: 1px solid #000;height: 50px;width: 100px; }
+
+/*
+注意：
+1、不要给table、th、td以外的表格标签加样式
+2、单元格默认平分table的宽度
+3、th里面的内容默认加粗并且左右上下居中显示
+4、td里面的内容默认上下居中，左右居左显示
+5、table决定了表格的宽度（td设置了也没用）
+6、table里面的单元格宽度会被转换成百分比
+7、表格里面的每一列都必须有宽度、
+8、同一列继承最大宽度，只取最大的值
+9、同一行继承最大高度，只取最大的值
+
+colspan  属性规定单元格可横跨的列数。
+    <td colspan="2"></td>
+
+ */
+
+</style>
+</head>
+<body>
+<table>
+    <tr>
+        <th>表头1</th>
+        <th>表头2</th>
+        <th>表头3</th>
+        <th>表头4</th>
+        <th>表头5</th>
+    </tr>
+    <tr>
+        <td>内容1内容1内容1内容1内容1内容1内容1内容1内容1</td>
+        <td>内容2</td>
+        <td colspan="2">内容3</td>
+
+        <td>内容5</td>
+    </tr>
+    <tr>
+        <td>内容1内容1内容1内容1内容1内容1内容1内容1内容1</td>
+        <td>内容2</td>
+        <td>内容3</td>
+        <td>内容4</td>
+        <td>内容5</td>
+    </tr>
+    <tr>
+        <td>内容1内容1内容1内容1内容1内容1内容1内容1内容1</td>
+        <td>内容2</td>
+        <td>内容3</td>
+        <td colspan="2" rowspan="3">内容4</td>
+       
+    </tr>
+    <tr>
+        <td>内容1内容1内容1内容1内容1内容1内容1内容1内容1</td>
+        <td>内容2</td>
+        <td>内容3</td>
+        
+    </tr>
+    <tr>
+        <td>内容1内容1内容1内容1内容1内容1内容1内容1内容1</td>
+        <td>内容2</td>
+        <td>内容3</td>
+      
+    </tr>
+</table>
+</body>
+</html>

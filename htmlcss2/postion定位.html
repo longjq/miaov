@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+
+</style>
+</head>
+<body>
+
+/**
+ * 
+
+position:relative;  相对定位
+        a、不影响元素本身的特性；
+b、不使元素脱离文档流；
+c、如果没有定位偏移量，对元素本身没有任何影响；
+
+定位元素位置控制
+        top/right/bottom/left  定位元素偏移量。
+
+
+
+position:absolute;  绝对定位（定位元素 默认后者的层级高于前者的定位层级）
+a、使元素完全脱离文档流；
+b、使内嵌支持宽高；
+c、块属性标签内容撑开宽度；
+d、如果有定位父级相对于定位父级发生偏移，没有定位父级相对于整个文档发生偏移；（该父级，不区分相对定位relative、还是绝对定位absolute）
+e、相对定位一般都是配合绝对定位元素使用；
+
+z-index:[number]；  定位层级
+        a、定位元素默认后者层级高于前者；
+
+
+
+position:fixed； 固定定位
+    与绝对定位的特性基本一致，的差别是始终相对整个文档进行定位；不会理会父级定位
+    问题：IE6不支持固定定位，使用js实现
+
+定位其他值：
+    position:static ； 默认值
+    position:inherit ;  从父元素继承定位属性的值
+
+position:relative | absolute | fixed | static | inherit;
+
+ */
+<!-- 
+
+    定位的影响 
+position:relative;
+    在 IE6 下父级的 overflow:hidden; 包不住子级的relative;
+
+position:absolute;
+    在 IE6 下定位元素的父级宽高都为奇数那么在 IE6 下定位元素的 right 和 bottom 都有1像素的偏差。
+
+position:absolute; 绝对定位元素子级的浮动可以不用写清浮动方法；
+
+position:fixed;  固定定位元素子级的浮动可以不用写清浮动方法；（IE6不兼容）
+
+
+
+
+
+
+
+
+
+
+
+
+
+ -->
+</body>
+</html>
