@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+/*css reset*/
+body,ul,dl,dt,dd{margin: 0;padding: 0;}
+li{list-style: none;}
+a{text-decoration: none;color: #333333;}
+img{vertical-align: top;border: none;}
+/*清浮动*/
+.clear{zoom:1;}
+.clear:after{content:'';display: block;clear: both;}
+/*全局面板*/
+.wrap{width: 390px;margin: 90px auto;}
+
+.car{width: 300px;}
+.car li{border-bottom: 1px dashed #ccc;height: 23px;padding-top: 5px;font-size: 12px;}
+li span{float: left;width: 17px;height: 14px;background: #942f25;color: #fff;line-height: 14px;text-align: center;font-size: 6px;}
+li .line{float: right;padding-left: 14px;width: 269px;}
+li .line a:hover{text-decoration: underline;}
+li .line em{float: right;color: #c71012;font-style: normal;}
+li .noTop{background: #999999;}
+
+.active{height: 83px;position: relative;}
+
+.active dl{position: absolute;top: 26px;left: 5px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+    
+    <ul class="car">
+        <li class="first clear">
+            <span>1</span>
+            <div class="line">
+                <a href="#">长城哈弗M4</a>
+                <em>6.39~7.19万</em>
+            </div>
+        </li>  
+        <li class="clear">
+            <span>2</span>
+            <div class="line">
+            <a href="#">长城哈弗M4</a>
+            <em>6.39~7.19万</em>
+            </div>
+        </li>  
+         <li class="clear">
+            <span>3</span>
+            <div class="line">
+            <a href="#">长城哈弗M4</a>
+            <em>6.39~7.19万</em>
+            </div>
+        </li>    
+         <li class="active">
+            <span class="noTop">4</span>
+            <div class="pic"></div>
+            <div class="line">
+                <em>6.39~7.19万</em>
+            </div>
+        </li> 
+        <li class="clear">
+            <span class="noTop">5</span>
+            <div class="line">
+            <a href="#">长城哈弗M4</a>
+            <em>6.39~7.19万</em>
+            </div>
+        </li> 
+        <li class="clear">
+            <span class="noTop">6</span>
+            <div class="line">
+            <a href="#">长城哈弗M4</a>
+            <em>6.39~7.19万</em>
+            </div>
+        </li> 
+        <li class="clear">
+            <span class="noTop">7</span>
+            <div class="line">
+            <a href="#">长城哈弗M4</a>
+            <em>6.39~7.19万</em>
+            </div>
+        </li>          
+    </ul>
+
+</div>
+</body>
+</html>
