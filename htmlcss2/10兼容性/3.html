@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+<style>
+/* ie6下，3像素bug */
+/* 触发条件：同一行元素，前面加元素，后面没加，前面使用margin来控制左右外边距，就会触发 3像素bug */
+
+.left{width: 100px;height: 100px;background: red;float: left;}
+
+.right{
+    width: 200px;
+    height: 100px;
+    background: blue;
+    /*
+    来控制距离，会触发3像素bug
+    margin-right: 100px;    
+    */
+   /*解决办法：同一行元素，前面浮动，后面也跟着浮动，解决3像素bug*/
+   float: left;
+}
+
+
+
+
+</style>
+
+</head>
+<body>
+
+
+<div class="box">
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+
+
+</body>
+</html>
