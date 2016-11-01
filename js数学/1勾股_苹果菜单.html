@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh_cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+/* 求两点间的距离，使用勾股定理实现 */
+*{ margin: 0;padding: 0; }
+#box{ width: 100%; position: absolute;bottom:0;	text-align:center;	}
+img { width: 64px; }	
+</style>
+<script>
+window.onload=function(){
+	var aInput = document.getElementsByTagName('input');
+	var oDiv = document.getElementById('box');
+	var aImg = oDiv.getElementsByTagName('img');
+
+	for ( var i = 0; aImg.length; i++ ) {
+		var x = aImg[i].offsetLeft + aImg[i].offsetWidth/2;
+		var y = aImg[i].offsetTop + aImg[i].offsetHeight/2;
+
+		aInput[i].value = 'X:'+x+' , Y:'+y
+	}
+}
+</script>
+</head>
+<body>
+
+<input type="text" value="">
+<input type="text" value="">
+<input type="text" value="">
+<input type="text" value="">
+<input type="text" value="">
+
+	<div id="box">
+		<img src="img/1.png">
+		<img src="img/2.png">
+		<img src="img/3.png">
+		<img src="img/4.png">
+		<img src="img/5.png">
+	</div>
+</body>
+</html>
