@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<style>
+#box{
+	width: 20px;
+	height: 20px;
+	background: red;
+	position: absolute;
+	left: 800px;
+	top: 300px;
+}
+.line{
+	border: 1px solid #000;
+	position: absolute;
+}
+</style>
+<script>
+window.onload=function(){
+	var oDiv = document.getElementById('box');
+	var r = 100;
+	var x = 700; // 中心点坐标
+	var y = 300;
+	var num = 0;
+	setInterval(function(){
+		
+		num++
+
+		var a =Math.sin(num * Math.PI / 180) * r;
+		var b =Math.cos(num * Math.PI / 180) * r;
+		
+		oDiv.style.left = x + b + 'px';
+		oDiv.style.top = y + a + 'px';
+		
+		var oBox = document.createElement('div');
+		oBox.className = 'line';
+		document.body.appendChild(oBox);
+
+		oBox.style.left = oDiv.offsetLeft+'px';
+		oBox.style.top = oDiv.offsetTop+'px';
+	}, 30);
+};
+</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>	
