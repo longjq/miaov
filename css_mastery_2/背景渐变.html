@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+<style>
+/* 渐变设置 */
+body{background:#72c860 url(img/bg.png) repeat-x;}
+
+#brand{margin: 0 auto;width: 700px;height: 200px;background: url(img/logo.png) no-repeat;}
+
+/* li的bg背景 */
+ul{list-style:none;background: #fff;}
+li{background:url(img/li-bg.png) no-repeat left 50%;padding-left: 15px;line-height: 180%;}
+
+/* 圆角框1 */
+.panel-1{width: 392px;background:#fff url(img/panel-bottom.png) no-repeat left bottom;}
+.panel-1 h2{padding:0 20px;background: url(img/panel-head.png) no-repeat;}
+.panel-1 p{padding:0 20px;}
+
+/* 圆角框2 */
+.panel-2{width: 392px;background: url(img/panel-bg.png) repeat-y;}
+.panel-2 h2{padding-top:20px;background: url(img/panel-head.png) no-repeat left top;font-size:136px;}
+.panel-2 .last{padding-bottom: 20px;background:#fff url(img/panel-bottom.png) no-repeat left top;}
+.panel-2 h2, .panel-2 p{padding-left: 20px;padding-right: 20px;}
+</style>
+
+</head>
+<body>
+	<div id="brand"></div>
+
+	<ul>
+		<li><a href="#">新闻1</a></li>
+		<li><a href="#">新闻2</a></li>
+		<li><a href="#">新闻3</a></li>
+	</ul>
+
+	<div class="panel-1">
+		<h2>headline</h2>
+		<p>content</p>
+	</div>
+
+	<div class="panel-2">
+		<h2>headline</h2>
+		<p>content1</p>
+		<p>content1</p>
+		<p>content1</p>
+		<div class="last">&nbsp;</div>
+	</div>
+</body>
+</html>
