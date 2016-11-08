@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+body{margin: 15px;}
+.father{background-color: #ffff99;border: 1px solid #111;padding: 5px;}
+.father div{padding: 10px;margin: 15px;border: 1px dashed #111;background-color: #90baff;}
+.father p{border: 1px dashed #111;background-color: #ff90ba;}
+.father .son1{
+/*son1的浮动方式*/
+float: left;	
+background: green;
+}
+.father .son2{
+/*son2的浮动方式*/
+float: left;
+background: red;
+}
+.father .son3{
+/*son3的浮动方式*/
+background: blue;
+float: left;
+}
+</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1">
+		box-1box-1box-1box-1box-1box-1box-1
+		box-1box-1box-1box-1box-1box-1box-1box-1
+		box-1
+		</div>
+		<div class="son2">box-2</div>
+		<div class="son3">box-3</div>
+		<p>这里是浮动框外围的文字，这里是浮动框外围的文字，这里是浮动框外围的文字，这里是浮动框外围的文字，这里是浮动框外围的文字，这里是浮动框外围的文字，这里是浮动框外围的文字，这里是浮动框外围的文字，这里是浮动框外围的文字，这里是浮动框外围的文字。</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+	<meta charset="gb2312">
+	<title>Document</title>
+</head>
+<body>
+	
+
+<div id="box" style="width: 200px;height: 200px;background: green;"></div>
+<div style="width: 200px;height: 200px;background: red;"></div>
+<script>
+var box = document.getElementById('box');
+
+// js设置浮动时，兼容性需要如下操作
+// box.style.float = 'left'; // chrome支持该语法
+// box.style.cssFloat = 'left';// chrome支持该语法
+// box.style.styleFloat = 'left'; //ie8+支持该语法
+// 上面问题的解决方案，使用class的css方式修改
+
+/*
+ style的两种写法
+ 一、dom.style.width = '200px';
+ 二、dom.style['width'] = '200px;' // 该方法支持变量的方式，并且没有兼容性的问题
+
+
+特别注意！！！
+在js中可以将“.”操作符使用“[]”中括号替代
+例如：
+oBtn.onclick=function(){}
+变成
+oBtn['onclick']=function(){}
+
+document.getElementById('box')
+变成
+document['getElementById']('box')
+
+
+
+*/
+</script>
+</body>
+</html>
